@@ -41,5 +41,8 @@
   ],
   "engines": {
     "yarn": ">=1.19"
+  },
+  "dependencies": {
+    "camel-case": "4.1.1"
   }
 }
