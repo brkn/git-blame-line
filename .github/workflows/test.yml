@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Test
+    env:
+      CI: true
+      TERM: xterm-256color
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: [14.x, 12.x, 10.x]
+        exclude:
+          # On Windows, run tests with only the latest environments.
+          - os: windows-latest
+            node: 10.x
+          - os: windows-latest
+            node: 13.x
+          # On macOS, run tests with only the latest environments.
+          - os: macOS-latest
+            node: 10.x
+          - os: macOS-latest
+            node: 13.x
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: yarn install --frozen-lockfile --ignore-optional --non-interactive --silent
+      - run: node --expose-gc node_modules/jest/bin/jest --forceExit --bail --colors --logHeapUsage --maxWorkers=2 --ci
+
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/coverage-final.json
