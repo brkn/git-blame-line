@@ -16,6 +16,7 @@ interface BlameOptions {
   ignoreWhitespace: boolean;
   workTree: string;
   gitDir: string;
+  rev: string;
 }
 
 interface LineInfo {
@@ -57,6 +58,9 @@ export async function blame(
   }
   if (typeof options.range === 'string') {
     args.push(`-L${options.range}`);
+  }
+  if (typeof options.rev === 'string') {
+    args.push(options.rev);
   }
   const git = spawn(gitPath, [...args, '--', filename], {
     windowsHide: true,

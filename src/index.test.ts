@@ -6,6 +6,7 @@ describe('returns git blame as lines map', () => {
     const res = await blame('lib/context.js', {
       gitDir: './test/koa/.git',
       range: '195,197',
+      rev: '2.11.0',
     });
     expect(res).toBeInstanceOf(Map);
     expect(res.size).toBe(3);
