@@ -13,11 +13,17 @@
   },
   "version": "1.0.0",
   "main": "dist/index.js",
+  "files": [
+    "dist/index.d.ts"
+  ],
   "scripts": {
-    "lint": "eslint --ext=ts ./src",
-    "test": "jest",
     "build": "tsc",
-    "prepublishOnly": "jest && tsc"
+    "lint": "eslint --ext=ts ./src",
+    "prepublishOnly": "jest && tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "camel-case": "4.1.1"
   },
   "devDependencies": {
     "@types/jest": "latest",
@@ -37,16 +43,13 @@
     "typescript": "latest"
   },
   "keywords": [
-    "git",
     "blame",
+    "git",
     "git-blame",
     "typescript"
   ],
   "engines": {
-    "yarn": ">=1.19",
-    "node": ">=10.10"
-  },
-  "dependencies": {
-    "camel-case": "4.1.1"
+    "node": ">=10.10",
+    "yarn": ">=1.19"
   }
 }
