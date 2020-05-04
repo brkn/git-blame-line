@@ -1,15 +1,15 @@
 {
-  "name": "____FIX_ME____",
-  "description": "____FIX_ME____",
+  "name": "git-blame-json",
+  "description": "Execute git blame async and efficiently with results as Map",
   "license": "MIT",
   "author": "Konstantin Vyatkin <tino@vtkn.io>",
-  "homepage": "https://github.com/tinovyatkin/____FIX_ME____#readme",
+  "homepage": "https://github.com/tinovyatkin/git-blame-json#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tinovyatkin/____FIX_ME____.git"
+    "url": "git+https://github.com/tinovyatkin/git-blame-json.git"
   },
   "bugs": {
-    "url": "https://github.com/tinovyatkin/____FIX_ME____/issues"
+    "url": "https://github.com/tinovyatkin/git-blame-json/issues"
   },
   "version": "1.0.0",
   "main": "dist/index.js",
@@ -37,10 +37,14 @@
     "typescript": "latest"
   },
   "keywords": [
-    "____FIX_ME____"
+    "git",
+    "blame",
+    "git-blame",
+    "typescript"
   ],
   "engines": {
-    "yarn": ">=1.19"
+    "yarn": ">=1.19",
+    "node": ">=10.10"
   },
   "dependencies": {
     "camel-case": "4.1.1"
