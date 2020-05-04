@@ -10,7 +10,6 @@ jobs:
     name: Test
     env:
       CI: true
-      TERM: xterm-256color
 
     strategy:
       matrix:
@@ -32,12 +31,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 1
+          fetch-depth: 100
+          submodules: true
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
       - run: yarn install --frozen-lockfile --ignore-optional --non-interactive --silent
-      - run: node --expose-gc node_modules/jest/bin/jest --forceExit --bail --colors --logHeapUsage --maxWorkers=2 --ci
+      - run: node --expose-gc node_modules/jest/bin/jest --forceExit --bail --logHeapUsage --maxWorkers=2 --ci
 
       - uses: codecov/codecov-action@v1
         with:
