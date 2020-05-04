@@ -25,11 +25,11 @@ interface LineInfo {
   hash: string;
   numberOfLines: number;
   author: string;
-  authorEmail: string;
+  authorMail: string;
   authorTime: number;
   authorTz: string;
   commiter: string;
-  commiterEmail: string;
+  commiterMail: string;
   commiterTime: number;
   commiterTz: string;
   summary: string;
