@@ -6,27 +6,26 @@ describe('returns git blame as lines map', () => {
     const res = await blame('lib/context.js', {
       gitDir: './test/koa/.git',
       range: '195,197',
-      rev: '2.11.0',
+      rev: '..2.11.0',
     });
     expect(res).toBeInstanceOf(Map);
     expect(res.size).toBe(3);
     expect(res.get(196)).toMatchInlineSnapshot(`
       Object {
-        "author": "Konstantin Vyatkin",
-        "authorMail": "tino@vtkn.io",
-        "authorTime": 1571054445,
-        "authorTz": "-0400",
-        "committer": "Yiyu He",
+        "author": "dead-horse",
+        "authorMail": "dead_horse@qq.com",
+        "authorTime": 1572231169,
+        "authorTz": "+0800",
+        "committer": "dead-horse",
         "committerMail": "dead_horse@qq.com",
-        "committerTime": 1571054445,
+        "committerTime": 1572231169,
         "committerTz": "+0800",
         "filename": "lib/context.js",
-        "hash": "d48d88ee17b780c02123e6d657274cab456e943e",
-        "numberOfLines": 1,
-        "previous": "8be5626bbb54e6c899a1b71d22411709126d9fea lib/context.js",
-        "resultLine": 196,
-        "sourceLine": 196,
-        "summary": "feat: implement response.has (#1397)",
+        "hash": "ed84ee50da8ae3cd08056f944d061e00d06ed87f",
+        "numberOfLines": 3,
+        "resultLine": 195,
+        "sourceLine": 195,
+        "summary": "Release 2.11.0",
       }
     `);
   });
