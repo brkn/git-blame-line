@@ -2,7 +2,6 @@ import { blame } from './index';
 
 describe('returns git blame as lines map', () => {
   it('supports blame options', async () => {
-    // https://stackoverflow.com/questions/5098256/git-blame-prior-commits
     const res = await blame('lib/context.js', {
       gitDir: './test/koa/.git',
       range: '195,197',
