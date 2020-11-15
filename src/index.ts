@@ -1,8 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/**
- * Spawns git blame and parses results into JSON, via stream (so, no problem on huge files)
- */
-
 import { spawn } from 'child_process';
 import { createInterface } from 'readline';
 import { camelCase } from 'camel-case';

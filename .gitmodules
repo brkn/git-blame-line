@@ -1,3 +1,0 @@
-[submodule "test/koa"]
-	path = test/koa
-	url = git@github.com:koajs/koa.git
