@@ -24,7 +24,8 @@
     "eslint:fix": "eslint --fix --ext .jsx,.js,.tsx,.ts src/"
   },
   "dependencies": {
-    "camel-case": "4.1.1"
+    "camel-case": "4.1.1",
+    "date-fns": "2.16.1"
   },
   "devDependencies": {
     "@babel/cli": "7.12.1",
