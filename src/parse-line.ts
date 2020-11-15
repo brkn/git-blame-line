@@ -5,13 +5,22 @@ const BLAME_INFO_LINE_REGEX = /^(?<token>[a-z]+(-(?<subtoken>[a-z]+))?)\s(?<data
 
 type InfoLine = {
   [x: string]: string | Date;
-}
+};
 
-export function parseBlameInfoLine(line: string) : InfoLine {
+export function parseBlameInfoLine(line: string): InfoLine {
+  if (line === "boundary") {
+    return {
+      boundary: "",
+    };
+  }
+
   const commitInfo = BLAME_INFO_LINE_REGEX.exec(line);
 
   if (!commitInfo?.groups) {
-    throw new Error("Given line string is not a blame info line");
+    throw new Error(`
+    Given line string is not a blame info line
+    ${line}
+    `);
   }
 
   const { token, subtoken, data } = commitInfo.groups;
