@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+
+# output files
+/dist
+
+# misc
+.DS_Store
+
+# log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
