@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/brkn/git-blame-line/issues"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "files": [
     "lib/index.d.ts"
