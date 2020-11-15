@@ -14,15 +14,20 @@
   "homepage": "https://github.com/brkn/git-blame-line#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brkn/git-blame-line.git"
+    "url": "https://github.com/brkn/git-blame-line.git"
   },
   "bugs": {
     "url": "https://github.com/brkn/git-blame-line/issues"
   },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "lib/index.js",
+  "bin": "lib/cli.js",
   "files": [
-    "lib/index.d.ts"
+    "lib/**/*",
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "yarn.lock"
   ],
   "scripts": {
     "build": "tsc",
@@ -34,7 +39,8 @@
   },
   "dependencies": {
     "camel-case": "4.1.1",
-    "date-fns": "2.16.1"
+    "date-fns": "2.16.1",
+    "meow": "8.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.19.4",

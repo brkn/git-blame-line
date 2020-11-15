@@ -67,6 +67,7 @@ module.exports = {
         tsx: "never",
       },
     ],
+    "no-tabs": "off",
 
     // prettier rules
     "max-len": [

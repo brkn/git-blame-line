@@ -21,8 +21,9 @@ export async function blameLine(filepathWithLine: string): Promise<BlameInfo> {
     filename,
     lineNumber
   ] = filepathWithLine.split(":");
+  // TODO: remove this check and add a regex check at the top.
   if (!lineNumber) {
-    throw new Error("filepathWithLine syntax is wrong, use <filepath>:<linenumber> format");
+    throw new Error("Error: filepathWithLine syntax is wrong, you have to pass a single filepath and linenumber seperated with `:` character");
   }
   const gitCommandString = `git blame --line-porcelain -L ${lineNumber},+1 ${filename}`;
 
