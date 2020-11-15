@@ -3,11 +3,15 @@ import fromUnixTime from "date-fns/fromUnixTime";
 
 const BLAME_INFO_LINE_REGEX = /^(?<token>[a-z]+(-(?<subtoken>[a-z]+))?)\s(?<data>.+)$/;
 
-export function parseBlameInfoLine(line: string) {
+type InfoLine = {
+  [x: string]: string | Date;
+}
+
+export function parseBlameInfoLine(line: string) : InfoLine {
   const commitInfo = BLAME_INFO_LINE_REGEX.exec(line);
 
   if (!commitInfo?.groups) {
-    return;
+    throw new Error("Given line string is not a blame info line");
   }
 
   const { token, subtoken, data } = commitInfo.groups;
@@ -24,6 +28,8 @@ export function parseBlameInfoLine(line: string) {
     case "time":
       // parse datestamp into date
       value = fromUnixTime(parseInt(value, 10));
+      break;
+    default:
       break;
   }
 

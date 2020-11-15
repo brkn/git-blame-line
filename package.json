@@ -1,45 +1,50 @@
 {
-  "name": "git-blame-json",
-  "description": "Execute git blame async and efficiently with results as Map",
+  "name": "git-blame-line",
+  "description": "Execute git blame for a single line and get a JSON as result",
   "license": "MIT",
-  "author": "Konstantin Vyatkin <tino@vtkn.io>",
-  "homepage": "https://github.com/tinovyatkin/git-blame-json#readme",
+  "author": {
+    "name": "Brkn",
+    "email": "berkanunal@gmail.com",
+    "url": "https://berkan.dev/"
+  },
+  "contributors": [
+    "Konstantin Vyatkin <tino@vtkn.io>",
+    "Brkn <berkanunal@gmail.com> (https://berkan.dev/)"
+  ],
+  "homepage": "https://github.com/brkn/git-blame-line#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tinovyatkin/git-blame-json.git"
+    "url": "git+https://github.com/brkn/git-blame-line.git"
   },
   "bugs": {
-    "url": "https://github.com/tinovyatkin/git-blame-json/issues"
+    "url": "https://github.com/brkn/git-blame-line/issues"
   },
-  "version": "1.0.1",
-  "main": "dist/index.js",
+  "version": "0.1.0",
+  "main": "lib/index.js",
   "files": [
-    "dist/index.d.ts"
+    "lib/index.d.ts"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "tsc",
+    "dev": "tsc --watch",
     "test": "jest --coverage --verbose",
     "typecheck": "echo \"type-checking...\" && tsc --noEmit",
-    "eslint": "eslint --ext .jsx,.js,.tsx,.ts src/",
-    "eslint:fix": "eslint --fix --ext .jsx,.js,.tsx,.ts src/",
-    "dev": "webpack --watch"
+    "eslint": "eslint src/",
+    "eslint:fix": "eslint --fix src/"
   },
   "dependencies": {
     "camel-case": "4.1.1",
     "date-fns": "2.16.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.12.1",
-    "@babel/core": "7.12.3",
-    "@babel/plugin-proposal-optional-chaining": "7.12.1",
-    "@babel/plugin-transform-destructuring": "7.12.1",
-    "@babel/preset-typescript": "7.12.1",
-    "babel-loader": "8.1.0",
+    "@types/node": "^12.19.4",
+    "@typescript-eslint/eslint-plugin": "4.7.0",
+    "@typescript-eslint/parser": "4.7.0",
+    "eslint": "7.13.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.22.1",
     "husky": "4.3.0",
-    "typescript": "4.0.3",
-    "webpack": "^5.1.3",
-    "webpack-cli": "4.0.0",
-    "webpack-watched-glob-entries-plugin": "2.1.7"
+    "typescript": "4.0.3"
   },
   "keywords": [
     "blame",
@@ -48,6 +53,6 @@
     "typescript"
   ],
   "engines": {
-    "node": ">=12"
+    "node": ">=8"
   }
 }

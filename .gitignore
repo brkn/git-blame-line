@@ -3,6 +3,7 @@
 
 # output files
 /dist
+/lib
 
 # misc
 .DS_Store

@@ -1,6 +1,6 @@
 import { exec } from "child_process";
 
-export async function execPromise(command: string) {
+export async function execPromise(command: string): Promise<string> {
   const output = new Promise<string>((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
       if (error) {
@@ -15,5 +15,5 @@ export async function execPromise(command: string) {
     });
   });
 
-  return await output;
+  return output;
 }
