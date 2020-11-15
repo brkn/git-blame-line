@@ -7,8 +7,6 @@ export function parseBlameInfoLine(line: string) {
   const commitInfo = BLAME_INFO_LINE_REGEX.exec(line);
 
   if (!commitInfo?.groups) {
-    console.log("Line does not match regex")
-    console.log(line)
     return;
   }
 
@@ -30,6 +28,6 @@ export function parseBlameInfoLine(line: string) {
   }
 
   return {
-    property: value,
+    [property]: value,
   };
 }
