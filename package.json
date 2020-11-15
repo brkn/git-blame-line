@@ -17,11 +17,12 @@
     "dist/index.d.ts"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "webpack",
     "test": "jest --coverage --verbose",
     "typecheck": "echo \"type-checking...\" && tsc --noEmit",
     "eslint": "eslint --ext .jsx,.js,.tsx,.ts src/",
-    "eslint:fix": "eslint --fix --ext .jsx,.js,.tsx,.ts src/"
+    "eslint:fix": "eslint --fix --ext .jsx,.js,.tsx,.ts src/",
+    "dev": "webpack --watch"
   },
   "dependencies": {
     "camel-case": "4.1.1",
@@ -30,6 +31,8 @@
   "devDependencies": {
     "@babel/cli": "7.12.1",
     "@babel/core": "7.12.3",
+    "@babel/plugin-proposal-optional-chaining": "7.12.1",
+    "@babel/plugin-transform-destructuring": "7.12.1",
     "@babel/preset-typescript": "7.12.1",
     "babel-loader": "8.1.0",
     "husky": "4.3.0",

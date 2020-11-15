@@ -26,4 +26,5 @@ module.exports = {
   optimization: {
     minimize: false,
   },
+  target: "node",
 };
