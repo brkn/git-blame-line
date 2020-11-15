@@ -1,7 +1,7 @@
 {
   "name": "git-blame-line",
   "description": "Execute git blame for a single line and get a JSON as result",
-  "license": "MIT",
+  "license": "MPL-2.0",
   "author": {
     "name": "Brkn",
     "email": "berkanunal@gmail.com",
