@@ -7,27 +7,34 @@ export async function blameLine(filepathWithLine: string) {
 
   const blameOutput = await execPromise(gitCommandString);
 
-  const mergedInfo: {
+  const lineInfos: {
     [key: string]: string | Date;
-  } = {};
+  }[] = [];
 
   const lines = blameOutput.split("\n");
 
   // First line is not important so we skip it by starting from second line
   // <40-byte hex sha1> <sourceline> <resultline> <num_lines>
-  for (let index = 1; index < lines.length; index++) {
+  // Last line is empty
+  // Second last line is source code with a /t at the start of the line
+  // so we skip these.
+  for (let index = 1; index < lines.length - 2; index++) {
     const line = lines[index];
 
-    const partialInfo = parseBlameInfoLine(line);
+    const infoLine = parseBlameInfoLine(line);
 
-    if (!partialInfo) {
+    if (!infoLine) {
       continue;
     }
 
-    const { property: value } = partialInfo;
-
-    mergedInfo[Object.keys(partialInfo)[0]] = value;
+    lineInfos.push(infoLine);
   }
+
+  const mergedInfo = lineInfos.reduce(
+    (prev, current) => ({ ...prev, ...current }),
+    {}
+  );
+  mergedInfo.sourceCode = lines[lines.length - 2].replace("\t", "");
 
   return mergedInfo;
 }
