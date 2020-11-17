@@ -4,7 +4,11 @@
 
 Executes `git blame` asynchronously for a given `<filepath>:<linenumber>` string, and returns the information in JSON format.
 
-## Usage
+```sh
+npm install --global git-blame-line
+```
+
+## CLI
 
 You don't need to remember git syntax to get blame info for single line now. Instead of writing this:
 
