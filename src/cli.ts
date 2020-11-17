@@ -10,22 +10,29 @@ const cli = meow(
 	Examples
 	  $ blame-line src/index.ts:1
 
-	  { author: 'Berkan Unal',
-		authorMail: 'Berkanunal@gmail.com',
-		authorTime: 2020-11-15T08:31:59.000Z,
-		authorTz: '+0300',
-		committer: 'Berkan Unal',
-		committerMail: 'Berkanunal@gmail.com',
-		committerTime: 2020-11-15T08:33:18.000Z,
-		committerTz: '+0300',
-		summary: 'Add parseBlameInfoLine and blameLine functions',
-		previous: '5e5f4c76ba770c3ac1aeec72ad37cca6e2d5d270 src/index.ts',
-		filename: 'src/index.ts',
-		sourceCode: 'import { execPromise } from "./exec-promise";' }
-`, {
+	  {
+		"author": "Berkan Unal",
+		"authorMail": "Berkanunal@gmail.com",
+		"authorTime": "2020-11-15T17:35:01.000Z",
+		"authorTz": "+0300",
+		"committer": "Berkan Unal",
+		"committerMail": "Berkanunal@gmail.com",
+		"committerTime": "2020-11-15T17:35:01.000Z",
+		"committerTz": "+0300",
+		"summary": "Remove babel webpack, add eslint, lint project",
+		"previous": "816634e51cf31c2d7bd18b7a8b082aff539e1bcd src/index.ts",
+		"filename": "src/index.ts",
+		"sourceCode": "export async function blameLine(filepathWithLine: string): Promise<BlameInfo> {"
+	  }
+`,
+  {
     description: false,
   }
 );
+
+function prettyPrint(json: unknown) {
+  console.log(JSON.stringify(json, null, 2));
+}
 
 async function run() {
   if (!cli.input[0]) {
@@ -33,7 +40,8 @@ async function run() {
   } else {
     try {
       const info = await blameLine(cli.input[0]);
-      console.log(info);
+
+      prettyPrint(info);
     } catch (error) {
       console.error(error.message);
       cli.showHelp();

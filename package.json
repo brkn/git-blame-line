@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/brkn/git-blame-line/issues"
   },
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "lib/index.js",
   "bin": {
     "blame-line": "lib/cli.js"

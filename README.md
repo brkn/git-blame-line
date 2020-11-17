@@ -6,32 +6,34 @@ Executes `git blame` asynchronously for a given `<filepath>:<linenumber>` string
 
 ## Usage
 
-Instead of writing this.
+You don't need to remember git syntax to get blame info for single line now. Instead of writing this:
 
 ```sh
-git blame -L 1,+1 src/index.ts --line-porcelain
+git blame -L 19,+1 --line-porcelain src/index.ts
 ```
 
 You can execute this from command line:
 
 ```sh
-blame-line src/index.ts:1
+blame-line src/index.ts:19
 ```
 
 And the output would be in the shape as:
 ```
-{ author: 'Berkan Unal',
-		authorMail: 'Berkanunal@gmail.com',
-		authorTime: 2020-11-15T08:31:59.000Z,
-		authorTz: '+0300',
-		committer: 'Berkan Unal',
-		committerMail: 'Berkanunal@gmail.com',
-		committerTime: 2020-11-15T08:33:18.000Z,
-		committerTz: '+0300',
-		summary: 'Add parseBlameInfoLine and blameLine functions',
-		previous: '5e5f4c76ba770c3ac1aeec72ad37cca6e2d5d270 src/index.ts',
-		filename: 'src/index.ts',
-		sourceCode: 'import { execPromise } from "./exec-promise";' }
+{
+  "author": "Berkan Unal",
+  "authorMail": "Berkanunal@gmail.com",
+  "authorTime": "2020-11-15T17:35:01.000Z",
+  "authorTz": "+0300",
+  "committer": "Berkan Unal",
+  "committerMail": "Berkanunal@gmail.com",
+  "committerTime": "2020-11-15T17:35:01.000Z",
+  "committerTz": "+0300",
+  "summary": "Remove babel webpack, add eslint, lint project",
+  "previous": "816634e51cf31c2d7bd18b7a8b082aff539e1bcd src/index.ts",
+  "filename": "src/index.ts",
+  "sourceCode": "export async function blameLine(filepathWithLine: string): Promise<BlameInfo> {"
+}
 ```
 
 ## Installing for using inside a node project
@@ -44,10 +46,10 @@ or
 npm install git-blame-line
 ```
 
-Then import in the project and use it easily like this: 
+Then import in the project and use it easily like this <sup>1</sup>:
 
 ```js
-import { blameLine } from ".";
+const { blameLine } = require("git-blame-line");
 
 async function example() {
   const info = await blameLine("path/to/file:123");
@@ -56,6 +58,8 @@ async function example() {
 
 example();
 ```
+
+<sup>1</sup> You don't have to use requirejs syntax
 
 ## License
 
